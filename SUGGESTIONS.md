@@ -389,3 +389,7 @@ The **Team Cohort** project is a solid foundation with excellent design and func
 
 **Reviewed by: Muaz**  
 *Feel free to reach out if you need clarification on any of these suggestions or want to discuss implementation priorities!*
+
+## 📝 Additional Suggestion by Muhammad Jasim Javed
+- Siplit App.jsx in simple modules.
+
