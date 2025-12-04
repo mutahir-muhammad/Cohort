@@ -1,4 +1,21 @@
 # Cohort Project - Suggestions for Improvement
+## Suggested By: Alishba Saboor
+I have faced some difficulty in setting up the project, we can add a proper readme for beginners facing these issues. The issue I faced was error related to `npm` command not recognized initially. It took me some time to search the errors I faced, so it would be more great if installation process from scratch is added in readme  
+**Solution:**  
+Add this in readme:  
+- Firstly download and install Node.js for Windows from https://nodejs.org/en/download/ , which also installs npm (Use Windows Installer)  
+- Verify installation with `node -v` and `npm -v`  
+- If npm gives a script execution error, we have to open PowerShell as Administrator and run `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` in powershell, after that confirm the execution policy change by typing Y  
+- Fork and Clone the repository using `git clone https://github.com/mutahir-muhammad/Cohort.git` (use the forked repository link not original `git clone https://github.com/your-username/Cohort.git`)  
+- Navigate into the project folder with `cd Cohort`  
+- Install dependencies using `npm install`  
+- Run `npm audit fix` to resolve minor vulnerabilities, no need to run `npm audit fix --force` as there is no need to force major challenges.  
+- Start the development server using `npm run dev`  
+- Open the app at http://localhost:5173  
+- Build the production version using `npm run build`
+
+---
+
 **Reviewed by: Muaz**  
 **Date: December 4, 2025**
 
