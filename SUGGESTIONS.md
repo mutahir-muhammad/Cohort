@@ -389,3 +389,27 @@ The **Team Cohort** project is a solid foundation with excellent design and func
 
 **Reviewed by: Muaz**  
 *Feel free to reach out if you need clarification on any of these suggestions or want to discuss implementation priorities!*
+
+---
+
+## ✍️ Additional Code-Focused Suggestions
+
+Reviewed directly from the repository code by: **Muhammad Huzaifa**
+
+- **Split `App.jsx` into smaller modules**: `App.jsx` is very large (~1.2k lines). Extract visual/style concerns and each major view into separate files (`LandingPage.jsx`, `Dashboard.jsx`, tab components under `components/tabs/`, UI primitives under `components/ui/`). This will improve readability and testability.
+- **Move injected CSS out of the component**: `CohortStyles` injects a large style block inline. Move those styles into `src/index.css` (or a dedicated `styles/` file) or convert them into Tailwind utility classes to avoid re-injection and improve runtime performance.
+- **Persist state**: There is currently no persistence for `roles`, `members`, or `templates`. Add a `useLocalStorage` hook or use `IndexedDB` for larger datasets so user data survives reloads.
+- **Type-safety migration path**: You already have `@types/react` in devDependencies — consider migrating incrementally to TypeScript (start with `components/` and hooks). Types will help with large components and complex generation logic.
+- **Isolate generation logic for testing**: Extract `generateTeams` and `validateGeneration` into pure functions in `src/lib/generation.js` (or `.ts`) and write unit tests (Vitest + React Testing Library). These functions are critical and benefit from strong unit coverage.
+- **Replace native `confirm` with accessible modals**: Calls to `window.confirm` block the UI and are not customizable for accessibility. Implement a modal component that manages focus and keyboard interactions.
+- **Accessibility improvements**: Add `aria-label`/`aria-pressed` to nav/tab buttons, use `aria-live` for `generationLog`, and ensure focus moves to results after generation (`focus()` the first result card). Add visible focus styles for keyboard users.
+- **Memoize expensive values/handlers**: Use `useCallback` and `useMemo` for handlers like `getRoleHex`, `addRole`, and `generateTeams` where appropriate to reduce unnecessary re-renders (especially after splitting components).
+- **Robust CSV parsing & CSV import UX**: Replace manual parsing with `papaparse` or similar for bulk imports; add preview, validation, and detailed error messages for malformed rows.
+- **Improve dependency grouping & security hygiene**: Move build-time tools (`autoprefixer`, `postcss`, `tailwindcss`) to `devDependencies`. Run `npm audit fix` and enable Dependabot/Renovate to keep deps current.
+- **Testing & CI**: Add Vitest, React Testing Library, and a GitHub Actions workflow that runs linting and tests on PRs. Add snapshot/visual tests for critical UI pieces (Storybook + Chromatic optional).
+- **Performance**: Lazy-load tab content with `React.lazy` + `Suspense`, and virtualize long member lists with `react-window` if members can grow large.
+- **Developer DX**: Add `lint-staged` + `husky` for pre-commit formatting and linting, and include recommended VS Code workspace settings in `.vscode/` for consistent formatting.
+
+---
+
+**Added by:** Muhammad Huzaifa
