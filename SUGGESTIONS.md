@@ -386,9 +386,11 @@ The **Team Cohort** project is a solid foundation with excellent design and func
 - **For Accessibility**: Focus on a11y and keyboard navigation
 
 ---
-
-**Reviewed by: Muaz**  
 *Feel free to reach out if you need clarification on any of these suggestions or want to discuss implementation priorities!*
+**Reviewed by: Muaz**  
+
+---
+
 1:The app is hard to use. Make the buttons and pages easier and faster so users don’t get stuck.
 2:Some tasks are slow. Make the app faster so users don’t waste time.
 3:There are no clear install instructions. Add simple guides to help users set up the app quickly.
