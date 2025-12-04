@@ -16,7 +16,7 @@ Add this in readme:
 
 ---
 
-## Reviewed by: Muaz* 
+## Reviewed by: Muaz
 **Date: December 4, 2025**
 
 ---
